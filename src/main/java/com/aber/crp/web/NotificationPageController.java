@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aber.crp.dto.NotificationDto;
 import com.aber.crp.service.NotificationService;
@@ -32,5 +33,12 @@ public class NotificationPageController {
 	public String submitNotificationPage() {
 		return "user/notification";
 	}
+	
+	@GetMapping("/deleteNotification")
+	public String deleteNotification(@RequestParam("id") Long id) {
+		notificationService.deleteNotification(id);
+		return "redirect:/user/notification";
+	}
+	
 
 }

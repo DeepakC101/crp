@@ -19,7 +19,7 @@
 	
 	<main class="px-3" style=" padding-top: 2rem;">
 	<div class="alert alert-success alert-dismissible fade show" th:each="item, index: ${notifications}">
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <a class="btn-close"  th:href="@{'/user/notification/deleteNotification?id=' + ${item.id}}"></a>
     <strong>Notification!</strong> <i th:text="${item.msg}"></i>
     <a th:href="${'/user/posts/view?id=' + item.postId}">View</a>
     </div>
