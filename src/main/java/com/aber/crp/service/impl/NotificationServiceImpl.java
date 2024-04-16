@@ -27,5 +27,11 @@ public class NotificationServiceImpl implements NotificationService {
 		List<NotificationDto> notificationDtoList = NotificationMapper.maptoNotificationDtoList(notifications, new ArrayList<NotificationDto>());
 		return notificationDtoList;
 	}
+
+	@Override
+	public void deleteNotification(Long id) {
+		notificationRepo.deleteById(id);
+		
+	}
 	
 }
