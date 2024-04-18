@@ -37,7 +37,7 @@
 			<div style="margin-top: 15px;" class="col-sm-6 col-lg-3 mb-3 mb-lg-0" th:each="item, index : ${postList}">
 			<!-- Limiting to 12 posts -->
                     <th:block th:if="${index.index le 11}">
-	                <a class="card card-transition h-100 card-design"  th:href="${'/user/posts/view?id=' + item.id}">
+	                <a class="card card-transition h-100 card-design" style = "text-decoration: none;" th:href="${'/user/posts/view?id=' + item.id}">
 					<div class="card-body">
 						<span class="card-subtitle" th:text="${item.subject}"></span>
 						<h5 class="card-text lh-base" th:text="${item.description}">
