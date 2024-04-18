@@ -17,12 +17,18 @@ public class PostDto extends BaseEntityDto {
 
 	
 	public String getSubject() {
+		if (subject!= null && subject.length() > 10) {
+			return subject.substring(0, 10) + "....";
+		}
 		return subject;
 	}
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
 	public String getDescription() {
+                    if (description!= null && description.length() > 50) {
+			return description.substring(0, 50) + "....";
+		}
 		return description;
 	}
 	public void setDescription(String description) {
