@@ -77,6 +77,10 @@ public class UserServiceImpl implements UserService {
 		return UserMapper.mapToUserDto(user, new UserDto());
 	}
 
-
+	@Override
+	public void deleteAccount(Long id) {
+		userRepo.deleteById(id);
+		
+	}
 
 }

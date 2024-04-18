@@ -9,7 +9,11 @@ public interface UserService extends UserDetailsService{
 	
 	User save(UserDto dto);
 
-	
+
 	UserDto findByUserName(String name);
+	
+	void deleteAccount(Long id);
+
+
 
 }

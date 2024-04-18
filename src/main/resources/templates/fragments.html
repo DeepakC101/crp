@@ -52,6 +52,16 @@
 	            	<li><a class="dropdown-item" th:href="@{/admin/adminHome}">Admin</a></li>
 	            </div>
 	            <li><a class="dropdown-item" href="#" th:href = "@{/user/profile}">Profile</a></li>
+	            
+	            <li>
+	             <form method="POST" th:action="@{/user/profile/delete}">
+
+
+               <button type="submit" class="dropdown-item" onclick="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">Delete Account</button>
+
+           			</form>
+	            </li>
+	            
 	            <li><hr class="dropdown-divider"></li>
 	            <li>
 		            <form method="POST" th:action="@{/logout}">
