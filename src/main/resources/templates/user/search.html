@@ -226,69 +226,31 @@
 		
 		
 			<div class="faq-tab">
-				<div class="tab">
-				  <input type="checkbox" id="tab1" class="tab-checkbox" checked>
-				  <label for="tab1" class="tab-label">Post 1</label>
-				  <div class="tab-content">
-					<div class="post">
-						<div class="post-content">
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nisi eius aut non blanditiis nesciunt eaque culpa quia, deleniti voluptatibus ipsam perspiciatis voluptate impedit hic repellat necessitatibus deserunt natus assumenda. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde impedit consequatur vero neque fugit aliquam dignissimos sequi ipsam asperiores voluptate alias maxime necessitatibus, debitis obcaecati exercitationem mollitia, perferendis nihil quos!</p>
-							<div class="post-meta">
-								<span class="like"><i class="bi bi-hand-thumbs-up-fill"></i> 280</span>
-								<span class="author">Viewed by: Jaspreet Kaur</span>
-								<span class="read-count">Date - 12/03/2024</span>
-								<span class="reviewed">Reviewed</span>
-								<span>Good Practice</span>
-							</div>
-						</div>
-					</div>
-				  </div>
-				</div>
-				
-				<div class="tab">
-				  <input type="checkbox" id="tab2" class="tab-checkbox">
-				  <label for="tab2" class="tab-label">Search Functionality</label>
-				  <div class="tab-content">
-					<div class="post">
-						<div class="post-content">
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nisi eius aut non blanditiis nesciunt eaque culpa quia, deleniti voluptatibus ipsam perspiciatis voluptate impedit hic repellat necessitatibus deserunt natus assumenda. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde impedit consequatur vero neque fugit aliquam dignissimos sequi ipsam asperiores voluptate alias maxime necessitatibus, debitis obcaecati exercitationem mollitia, perferendis nihil quos!</p>
-							<div class="post-meta">
-								<span class="like"><i class="bi bi-hand-thumbs-up-fill"></i> 280</span>
-								<span class="author">Viewed by: Jaspreet Kaur</span>
-								<span class="read-count">Date - 12/03/2024</span>
-								<span class="reviewed">Reviewed</span>
-								<span>Good Practice</span>
-							</div>
-						</div>
-					</div>
-				  </div>
-				</div>
-				
-				<div class="tab">
-				  <input type="checkbox" id="tab3" class="tab-checkbox">
-				  <label for="tab3" class="tab-label">Navigation Controls</label>
-				  <div class="tab-content">
-					<div class="post">
-						<div class="post-content">
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nisi eius aut non blanditiis nesciunt eaque culpa quia, deleniti voluptatibus ipsam perspiciatis voluptate impedit hic repellat necessitatibus deserunt natus assumenda. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde impedit consequatur vero neque fugit aliquam dignissimos sequi ipsam asperiores voluptate alias maxime necessitatibus, debitis obcaecati exercitationem mollitia, perferendis nihil quos!</p>
-							<div class="post-meta">
-								<span class="like"><i class="bi bi-hand-thumbs-up-fill"></i> 280</span>
-								<span class="author">Viewed by: Jaspreet Kaur</span>
-								<span class="read-count">Date - 12/03/2024</span>
-								<span class="reviewed">Reviewed</span>
-								<span>Good Practice</span>
-							</div>
-						</div>
-					</div>
-				  </div>
-				</div>
-			  </div>
 			
-			<div class="button-container">
-				<button class="button">Previous</button>
-				<button class="button">Next</button>
-			</div>
-		</div>
+			<div class="tab" th:if="${#lists.isEmpty(postList)}" >
+				     	<div  class="alert alert-warning" role="alert"> No data available</div>
+				     </div>
+				<div class="tab" th:each="item, index : ${postList}">
+				  <input type="checkbox" class="tab-checkbox" checked>
+				   <a for="tab1" class="tab-label" th:href="${'/user/posts/view?id=' + item.id}" th:text="${item.subject}" ></a>
+				  <div class="tab-content">
+					<div class="post">
+						<div class="post-content">
+							<p th:text="${item.description}"></p>
+							<div class="post-meta">
+								<span class="author" th:text="'Viewed by :'+${item.createdBy}"></span>
+								<span class="read-count" th:text="'Date :'+${item.createdDate}"></span>
+								<span class="reviewed" th:text="'Reviewed :'+${item.reviewed}"></span>
+								<span th:text="'Good Practice :'+${item.goodPractice}"></span>
+							</div>
+						</div>
+					</div>
+				  </div>
+				</div>
+				
+				
+			  </div>
+		
 	 </main>
 </body>
 </html>

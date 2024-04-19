@@ -68,7 +68,7 @@
 
         </div>
 
-        
+        </form>
 
    <div class="dashboard-accordion-item-toggle">
 
@@ -84,35 +84,28 @@
   </div>
 
   <div class="card-body">
-    <form>
+    <form  th:action = "@{/user/profile/updatePassword}" method = "post" th:object = "${user}" class="needs-validation" >
+    
+
       <div class="row mb-4">
-        <label for="currentPasswordLabel" class="col-sm-3 col-form-label form-label">Current password</label>
+        <label for="password1" class="col-sm-3 col-form-label form-label">New password</label>
 
         <div class="col-sm-9">
-          <input type="password" class="form-control" name="currentPassword" id="currentPasswordLabel" placeholder="Enter current password" aria-label="Enter current password">
+          <input type="password" class="form-control" th:field = "*{password1}" id="password1" placeholder="Enter new password" aria-label="Enter new password">
         </div>
       </div>
 
       <div class="row mb-4">
-        <label for="newPassword" class="col-sm-3 col-form-label form-label">New password</label>
-
-        <div class="col-sm-9">
-          <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="Enter new password" aria-label="Enter new password">
-        </div>
-      </div>
-
-      <div class="row mb-4">
-        <label for="confirmNewPasswordLabel" class="col-sm-3 col-form-label form-label">Confirm new password</label>
+        <label for="password2" class="col-sm-3 col-form-label form-label">Confirm new password</label>
 
         <div class="col-sm-9">
           <div class="mb-3">
-            <input type="password" class="form-control" name="confirmNewPassword" id="confirmNewPasswordLabel" placeholder="Confirm your new password" aria-label="Confirm your new password">
+            <input type="password" class="form-control" th:field = "*{password2}" id="password1" placeholder="Confirm your new password" aria-label="Confirm your new password">
           </div>      
         </div>
       </div>
 
       <div class="d-flex justify-content-end gap-3">
-        <a class="btn btn-white" href="javascript:;">Cancel</a>
         <button type="submit" class="btn btn-primary" >Update Password</button>
       </div>
     </form>

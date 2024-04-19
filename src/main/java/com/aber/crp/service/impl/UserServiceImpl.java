@@ -20,6 +20,7 @@ import com.aber.crp.model.Role;
 import com.aber.crp.model.User;
 import com.aber.crp.repository.UserRepository;
 import com.aber.crp.service.UserService;
+import com.aber.crp.util.Utils;
 
 
 @Service
@@ -82,5 +83,18 @@ public class UserServiceImpl implements UserService {
 		userRepo.deleteById(id);
 		
 	}
+
+	@Override
+	public void updatePassword(String password1) {
+
+		User user = userRepo.findByUserName(Utils.getCurrentUserName());
+		user.setPassword(passwordEncoder.encode(password1));
+		userRepo.save(user);
+
+		
+	}
+	
+	
+	
 
 }

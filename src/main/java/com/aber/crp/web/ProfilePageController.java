@@ -7,11 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.aber.crp.dto.PostDto;
 import com.aber.crp.dto.UserDto;
 import com.aber.crp.service.UserService;
 import com.aber.crp.util.Utils;
@@ -44,6 +46,12 @@ public class ProfilePageController {
 	public String deleteAccount() {
 		UserDto userdto = userService.findByUserName(Utils.getCurrentUserName());
 		userService.deleteAccount(userdto.getId());
+		return "redirect:/login";
+	}
+	
+	@PostMapping("/updatePassword")
+	public String updatePassword(@ModelAttribute("user") UserDto user) {
+		userService.updatePassword(user.getPassword1());
 		return "redirect:/login";
 	}
 
