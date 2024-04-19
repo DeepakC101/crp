@@ -145,7 +145,7 @@ public class PostServiceImpl implements PostService {
 			case "GP" -> msg.append(userName +" marked your post for goodpractice");
 			case "BP" -> msg.append(userName +" removed good practice tag from your post");
 			case "RV" -> msg.append(userName +" reviewed your post");
-			case "CRV" -> msg.append(userName +" caceled the review for your post");
+			case "CRV" -> msg.append(userName +" canceled the review for your post");
 		}
 		
 		Notification notification = new Notification(receiverUserName, postId, msg.toString());

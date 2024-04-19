@@ -35,7 +35,7 @@
 	
 	        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 	          <li><a href="#" th:href = "@{/user/home}" class="nav-link px-2 link-body-emphasis">Home</a></li>
-	          <li><a href="#" th:href = "@{/user/message}" class="nav-link px-2 link-body-emphasis">My Messages</a></li>
+<!-- 	          <li><a href="#" th:href = "@{/user/message}" class="nav-link px-2 link-body-emphasis">My Messages</a></li> -->
 	          <div sec:authorize = "hasRole('USER')">
 	          		<li><a href="#" th:href = "@{/user/posts}" class="nav-link px-2 link-body-emphasis">Posts</a></li>
 	          </div>
@@ -48,9 +48,9 @@
 	          		<img th:src="@{/images/person-circle.svg}" width="32" height="32" class="rounded-circle"/>
 	          </a>
 	          <ul class="dropdown-menu text-small" style="">
-	          	<div sec:authorize = "hasRole('ADMIN')">
-	            	<li><a class="dropdown-item" th:href="@{/admin/adminHome}">Admin</a></li>
-	            </div>
+<!-- 	          	<div sec:authorize = "hasRole('ADMIN')"> -->
+<!-- 	            	<li><a class="dropdown-item" th:href="@{/admin/adminHome}">Admin</a></li> -->
+<!-- 	            </div> -->
 	            <li><a class="dropdown-item" href="#" th:href = "@{/user/profile}">Profile</a></li>
 	            
 	            <li>

@@ -55,10 +55,12 @@
 							    </button>
 							    <ul class="dropdown-menu">
 							      <li><a class="dropdown-item" th:href="${'/user/posts/deletePost?id='+post.id}">Delete</a></li>
-							      <li><a class="dropdown-item" th:href="${'/review/updateStatus?id='+post.id+'&status=RV'}" th:unless="${post.reviewed}">Mark as Reviewed</a></li>
-   							      <li><a class="dropdown-item" th:href="${'/review/updateStatus?id='+post.id+'&status=CRV'}" th:if="${post.reviewed}">Cancel Reviewed</a></li>
-   							      <li><a class="dropdown-item" th:href="${'/review/updateStatus?id='+post.id+'&status=GP'}" th:unless="${post.goodPractice}">Good practice</a></li>
-							      <li><a class="dropdown-item" th:href="${'/review/updateStatus?id='+post.id+'&status=BP'}" th:if="${post.goodPractice}">Cancel Good practice</a></li>
+							      <div sec:authorize = "hasRole('ROLE_REVIEWER')">
+								      <li><a class="dropdown-item" th:href="${'/review/updateStatus?id='+post.id+'&status=RV'}" th:unless="${post.reviewed}">Mark as Reviewed</a></li>
+	   							      <li><a class="dropdown-item" th:href="${'/review/updateStatus?id='+post.id+'&status=CRV'}" th:if="${post.reviewed}">Cancel Reviewed</a></li>
+	   							      <li><a class="dropdown-item" th:href="${'/review/updateStatus?id='+post.id+'&status=GP'}" th:unless="${post.goodPractice}">Good practice</a></li>
+								      <li><a class="dropdown-item" th:href="${'/review/updateStatus?id='+post.id+'&status=BP'}" th:if="${post.goodPractice}">Cancel Good practice</a></li>
+							      </div>
 							      <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#viewTagsModal" >Tags</a></li>
 							    </ul>
 							</div>

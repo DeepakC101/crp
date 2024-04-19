@@ -15,5 +15,8 @@ public interface UserService extends UserDetailsService{
 	void deleteAccount(Long id);
 
 
+	void updatePassword(String password1);
+
+
 
 }
